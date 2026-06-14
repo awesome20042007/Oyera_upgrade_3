@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =====================================================
+         Oyera Auto Service Bay (OAS Bay) - Login Page
+         Student Project Submission
+         ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to OAS Bay Records Management System">
+    <title>Login | OAS Bay</title>
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+    <!-- ==================== Navigation Bar ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🔧</div>
+                <div class="logo-text">OAS <span>Bay</span></div>
+            </a>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="customer_registration.html">Customer Registration</a></li>
+                <li><a href="technician_registration.html">Technician Registration</a></li>
+                <li><a href="customer_view.html">Customer View</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Login Container ==================== -->
+    <!-- Background: Professional automotive service desk -->
+    <div class="login-container" style="background-image: url('https://images.pexels.com/photos/4489709/pexels-photo-4489709.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        <div class="login-box">
+            <!-- Login Header -->
+            <div class="logo">
+                <h2>OAS <span>Bay</span></h2>
+                <p style="color: #666; margin-top: 0.5rem;">Sign in to your account</p>
+            </div>
+
+            <!-- Login Form -->
+            <form action="#" method="POST" onsubmit="return validateLoginForm()">
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <!-- Remember Me Checkbox -->
+                <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="checkbox" id="remember" name="remember" style="width: auto;">
+                    <label for="remember" style="margin-bottom: 0; font-weight: normal;">Remember me</label>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-primary form-submit">Login</button>
+            </form>
+
+            <!-- Forgot Password Link -->
+            <div class="form-footer">
+                <p>Forgot your password? <a href="#" onclick="forgotPassword()">Reset Password</a></p>
+            </div>
+
+            <!-- Demo Credentials Info -->
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #f5f7fa; border-radius: 8px; text-align: center;">
+                <p style="font-size: 0.9rem; color: #666;">
+                    <strong>Demo Credentials:</strong><br>
+                    Username: admin<br>
+                    Password: admin123
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About OAS Bay</h3>
+                <p>Oyera Auto Service Bay is a professional automotive service center management system.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="customer_registration.html">Customer Registration</a></li>
+                    <li><a href="customer_view.html">Customer View</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📍 123 Auto Service Road, City</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>✉️ info@oas-bay.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Operating Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Oyera Auto Service Bay (OAS Bay). Software Engineering Student Project.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Login Validation -->
+    <script>
+        // Toggle mobile navigation menu
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Login form validation
+        function validateLoginForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username.trim() === '') {
+                alert('Please enter your username.');
+                return false;
+            }
+
+            if (password.trim() === '') {
+                alert('Please enter your password.');
+                return false;
+            }
+
+            // Demo credentials check
+            if (username === 'admin' && password === 'admin123') {
+                alert('Login successful! Redirecting to Dashboard...');
+                window.location.href = 'dashboard.html';
+                return false;
+            } else {
+                alert('Invalid username or password.\n\nTry: admin / admin123');
+                return false;
+            }
+        }
+
+        // Forgot password function
+        function forgotPassword() {
+            alert('Password Reset\n\nPlease contact the administrator at info@oas-bay.com to reset your password.');
+        }
+    </script>
+</body>
+</html>

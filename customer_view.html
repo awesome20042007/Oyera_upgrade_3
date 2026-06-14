@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =====================================================
+         Oyera Auto Service Bay (OAS Bay) - Customer View Page
+         Student Project Submission
+         ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage customer records at OAS Bay">
+    <title>Customer View | OAS Bay</title>
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+    <!-- ==================== Navigation Bar ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🔧</div>
+                <div class="logo-text">OAS <span>Bay</span></div>
+            </a>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="customer_registration.html">Customer Registration</a></li>
+                <li><a href="technician_registration.html">Technician Registration</a></li>
+                <li><a href="customer_view.html" class="active">Customer View</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Page Header ==================== -->
+    <!-- Background: Luxury service garage -->
+    <header class="page-header" style="background-image: url('https://images.pexels.com/photos/331229/pexels-photo-331229.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        <h1>Customer Records</h1>
+        <p>View and manage all customer information</p>
+    </header>
+
+    <!-- ==================== Main Content ==================== -->
+    <main class="container">
+        <!-- Search Bar Section -->
+        <section class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search customers by name, vehicle number..." onkeyup="searchCustomers()">
+                <button type="button" onclick="searchCustomers()">Search</button>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3>85</h3>
+                    <p>Completed Services</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-info">
+                    <h3>12</h3>
+                    <p>In Progress</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-info">
+                    <h3>5</h3>
+                    <p>Pending Services</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Records Table -->
+        <section>
+            <h2 class="section-title">Customer Records</h2>
+
+            <!-- Add New Customer Button -->
+            <div class="mb-2" style="text-align: right;">
+                <a href="customer_registration.html" class="btn btn-primary">+ Add New Customer</a>
+            </div>
+
+            <div class="table-container">
+                <table id="customerTable">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Phone Number</th>
+                            <th>Vehicle Number</th>
+                            <th>Vehicle Type</th>
+                            <th>Service Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Customer Record 1 -->
+                        <tr>
+                            <td>John Kamau</td>
+                            <td>+254 712 345 678</td>
+                            <td>UAG 123A</td>
+                            <td>Sedan</td>
+                            <td><span class="badge badge-completed">Completed</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('John Kamau')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('John Kamau')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('John Kamau')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Sample Customer Record 2 -->
+                        <tr>
+                            <td>Mary Wanjiku</td>
+                            <td>+254 723 456 789</td>
+                            <td>UAD 456B</td>
+                            <td>SUV</td>
+                            <td><span class="badge badge-progress">In Progress</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('Mary Wanjiku')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('Mary Wanjiku')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('Mary Wanjiku')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Sample Customer Record 3 -->
+                        <tr>
+                            <td>Peter Ochieng</td>
+                            <td>+254 734 567 890</td>
+                            <td>UAU 789C</td>
+                            <td>Pickup Truck</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('Peter Ochieng')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('Peter Ochieng')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('Peter Ochieng')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Sample Customer Record 4 -->
+                        <tr>
+                            <td>Grace Muthoni</td>
+                            <td>+254 745 678 901</td>
+                            <td>UBC 012D</td>
+                            <td>Hatchback</td>
+                            <td><span class="badge badge-completed">Completed</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('Grace Muthoni')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('Grace Muthoni')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('Grace Muthoni')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Sample Customer Record 5 -->
+                        <tr>
+                            <td>James Mwangi</td>
+                            <td>+254 756 789 012</td>
+                            <td>UDE 345E</td>
+                            <td>Minivan</td>
+                            <td><span class="badge badge-progress">In Progress</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('James Mwangi')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('James Mwangi')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('James Mwangi')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Sample Customer Record 6 -->
+                        <tr>
+                            <td>Sarah Njeri</td>
+                            <td>+254 767 890 123</td>
+                            <td>UFG 678F</td>
+                            <td>Sedan</td>
+                            <td><span class="badge badge-completed">Completed</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('Sarah Njeri')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('Sarah Njeri')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('Sarah Njeri')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Sample Customer Record 7 -->
+                        <tr>
+                            <td>David Kipchoge</td>
+                            <td>+254 778 901 234</td>
+                            <td>UHI 901G</td>
+                            <td>SUV</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small btn-view" onclick="viewCustomer('David Kipchoge')">View</button>
+                                    <button class="btn btn-small btn-edit" onclick="editCustomer('David Kipchoge')">Edit</button>
+                                    <button class="btn btn-small btn-delete" onclick="deleteCustomer('David Kipchoge')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About OAS Bay</h3>
+                <p>Oyera Auto Service Bay is a professional automotive service center management system.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="customer_registration.html">Customer Registration</a></li>
+                    <li><a href="customer_view.html">Customer View</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📍 123 Auto Service Road, City</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>✉️ info@oas-bay.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Operating Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Oyera Auto Service Bay (OAS Bay). Software Engineering Student Project.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Search and Actions -->
+    <script>
+        // Toggle mobile navigation menu
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Search function - filters table rows based on input
+        function searchCustomers() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('customerTable');
+            const rows = table.getElementsByTagName('tr');
+
+            // Loop through all table rows (skip header row)
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+
+                // Check each cell in the row
+                for (let j = 0; j < cells.length - 1; j++) { // -1 to skip actions column
+                    if (cells[j].textContent.toLowerCase().includes(filter)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                // Show or hide row based on search result
+                rows[i].style.display = found ? '' : 'none';
+            }
+        }
+
+        // View customer details
+        function viewCustomer(name) {
+            alert('Viewing details for: ' + name + '\n\nThis would open a detailed view of the customer record.');
+        }
+
+        // Edit customer record
+        function editCustomer(name) {
+            alert('Editing record for: ' + name + '\n\nThis would open an edit form for the customer record.');
+        }
+
+        // Delete customer record
+        function deleteCustomer(name) {
+            if (confirm('Are you sure you want to delete the record for ' + name + '?\n\nThis action cannot be undone.')) {
+                alert('Record for ' + name + ' has been deleted.');
+                // In a real application, this would send a request to the server
+            }
+        }
+    </script>
+</body>
+</html>

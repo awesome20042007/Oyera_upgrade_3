@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =====================================================
+         Oyera Auto Service Bay (OAS Bay) - Dashboard Page
+         Student Project Submission
+         ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OAS Bay Dashboard - View statistics and manage service records">
+    <title>Dashboard | OAS Bay</title>
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+    <!-- ==================== Navigation Bar ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🔧</div>
+                <div class="logo-text">OAS <span>Bay</span></div>
+            </a>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="customer_registration.html">Customer Registration</a></li>
+                <li><a href="technician_registration.html">Technician Registration</a></li>
+                <li><a href="customer_view.html">Customer View</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Page Header ==================== -->
+    <!-- Background: Modern service garage -->
+    <header class="page-header" style="background-image: url('https://images.pexels.com/photos/3806690/pexels-photo-3806690.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        <h1>Dashboard</h1>
+        <p>Overview of OAS Bay Service Center Operations</p>
+    </header>
+
+    <!-- ==================== Main Content ==================== -->
+    <main class="container">
+        <!-- Statistics Cards Section -->
+        <section class="stats-grid">
+            <!-- Total Customers Stat Card -->
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3>150</h3>
+                    <p>Total Customers</p>
+                </div>
+            </div>
+
+            <!-- Total Vehicles Stat Card -->
+            <div class="stat-card">
+                <div class="stat-icon">🚗</div>
+                <div class="stat-info">
+                    <h3>187</h3>
+                    <p>Total Vehicles</p>
+                </div>
+            </div>
+
+            <!-- Total Technicians Stat Card -->
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🔧</div>
+                <div class="stat-info">
+                    <h3>12</h3>
+                    <p>Total Technicians</p>
+                </div>
+            </div>
+
+            <!-- Vehicles in Service Stat Card -->
+            <div class="stat-card">
+                <div class="stat-icon">🔧</div>
+                <div class="stat-info">
+                    <h3>8</h3>
+                    <p>Vehicles in Service</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Section -->
+        <section class="quick-access">
+            <h2>Quick Actions</h2>
+            <div class="quick-access-grid">
+                <a href="customer_registration.html" class="quick-access-item">
+                    <span class="icon">📝</span>
+                    <span>Register Customer</span>
+                </a>
+                <a href="technician_registration.html" class="quick-access-item">
+                    <span class="icon">👷</span>
+                    <span>Register Technician</span>
+                </a>
+                <a href="customer_view.html" class="quick-access-item">
+                    <span class="icon">🔍</span>
+                    <span>View Customers</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Recent Customers Table Section -->
+        <section>
+            <h2 class="section-title">Recent Customers</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Phone Number</th>
+                            <th>Vehicle Number</th>
+                            <th>Vehicle Type</th>
+                            <th>Service Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Customer Record 1 -->
+                        <tr>
+                            <td>John Kamau</td>
+                            <td>+256 712 345 678</td>
+                            <td>UAG 123A</td>
+                            <td>Sedan</td>
+                            <td><span class="badge badge-completed">Completed</span></td>
+                        </tr>
+                        <!-- Sample Customer Record 2 -->
+                        <tr>
+                            <td>Mary Wanjiku</td>
+                            <td>+256 723 456 789</td>
+                            <td>UAD 456B</td>
+                            <td>SUV</td>
+                            <td><span class="badge badge-progress">In Progress</span></td>
+                        </tr>
+                        <!-- Sample Customer Record 3 -->
+                        <tr>
+                            <td>Peter Ochieng</td>
+                            <td>+256 734 567 890</td>
+                            <td>UAU 789C</td>
+                            <td>Pickup Truck</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                        </tr>
+                        <!-- Sample Customer Record 4 -->
+                        <tr>
+                            <td>Grace Muthoni</td>
+                            <td>+256 745 678 901</td>
+                            <td>UBC 012D</td>
+                            <td>Hatchback</td>
+                            <td><span class="badge badge-completed">Completed</span></td>
+                        </tr>
+                        <!-- Sample Customer Record 5 -->
+                        <tr>
+                            <td>James Mwangi</td>
+                            <td>+256 756 789 012</td>
+                            <td>UDE 345E</td>
+                            <td>Minivan</td>
+                            <td><span class="badge badge-progress">In Progress</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About OAS Bay</h3>
+                <p>Oyera Auto Service Bay is a professional automotive service center management system.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="customer_registration.html">Customer Registration</a></li>
+                    <li><a href="customer_view.html">Customer View</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📍 123 Auto Service Road, City</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>✉️ info@oas-bay.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Operating Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Oyera Auto Service Bay (OAS Bay). Software Engineering Student Project.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Navigation -->
+    <script>
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

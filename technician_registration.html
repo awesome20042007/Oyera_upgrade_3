@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =====================================================
+         Oyera Auto Service Bay (OAS Bay) - Technician Registration Page
+         Student Project Submission
+         ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register a new technician at OAS Bay">
+    <title>Technician Registration | OAS Bay</title>
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+    <!-- ==================== Navigation Bar ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🔧</div>
+                <div class="logo-text">OAS <span>Bay</span></div>
+            </a>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="customer_registration.html">Customer Registration</a></li>
+                <li><a href="technician_registration.html" class="active">Technician Registration</a></li>
+                <li><a href="customer_view.html">Customer View</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Page Header ==================== -->
+    <!-- Background: Automotive workshop -->
+    <header class="page-header" style="background-image: url('https://images.pexels.com/photos/162553/keys-workshop-mechanic-tool-162553.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        <h1>Technician Registration</h1>
+        <p>Register a new service technician</p>
+    </header>
+
+    <!-- ==================== Registration Form ==================== -->
+    <main class="container">
+        <div class="form-container">
+            <h2 class="form-title">New Technician Registration</h2>
+
+            <!-- Technician Registration Form -->
+            <form action="#" method="POST" onsubmit="return validateTechnicianForm()">
+                <!-- Technician Full Name -->
+                <div class="form-group">
+                    <label for="technicianName">Technician Full Name *</label>
+                    <input
+                        type="text"
+                        id="technicianName"
+                        name="technicianName"
+                        placeholder="Enter technician's full name"
+                        required
+                    >
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number *</label>
+                    <input
+                        type="tel"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        placeholder="e.g., +254 712 345 678"
+                        required
+                    >
+                </div>
+
+                <!-- Specialization -->
+                <div class="form-group">
+                    <label for="specialization">Specialization *</label>
+                    <select id="specialization" name="specialization" required>
+                        <option value="">-- Select Specialization --</option>
+                        <option value="engine-specialist">Engine Specialist</option>
+                        <option value="brake-specialist">Brake Specialist</option>
+                        <option value="electrical">Electrical Systems</option>
+                        <option value="ac-specialist">AC/Heating Specialist</option>
+                        <option value="transmission">Transmission Specialist</option>
+                        <option value="tire-wheel">Tire & Wheel Service</option>
+                        <option value="body-repair">Body & Paint Repair</option>
+                        <option value="general-mechanic">General Mechanic</option>
+                        <option value="diagnostic">Diagnostic Technician</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Years of Experience -->
+                <div class="form-group">
+                    <label for="experience">Years of Experience *</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">-- Select Experience Level --</option>
+                        <option value="0-1">Less than 1 year</option>
+                        <option value="1-2">1-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary form-submit">Register Technician</button>
+            </form>
+
+            <!-- Form Footer Links -->
+            <div class="form-footer">
+                <p>Need to view all records? <a href="dashboard.html">Go to Dashboard</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About OAS Bay</h3>
+                <p>Oyera Auto Service Bay is a professional automotive service center management system.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="customer_registration.html">Customer Registration</a></li>
+                    <li><a href="customer_view.html">Customer View</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📍 123 Auto Service Road, City</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>✉️ info@oas-bay.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Operating Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Oyera Auto Service Bay (OAS Bay). Software Engineering Student Project.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Validation and Navigation -->
+    <script>
+        // Toggle mobile navigation menu
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Form validation function
+        function validateTechnicianForm() {
+            const name = document.getElementById('technicianName').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const specialization = document.getElementById('specialization').value;
+            const experience = document.getElementById('experience').value;
+
+            // Basic validation
+            if (name.trim() === '') {
+                alert('Please enter the technician name.');
+                return false;
+            }
+
+            if (phone.trim() === '') {
+                alert('Please enter a phone number.');
+                return false;
+            }
+
+            if (specialization === '') {
+                alert('Please select a specialization.');
+                return false;
+            }
+
+            if (experience === '') {
+                alert('Please select years of experience.');
+                return false;
+            }
+
+            // Show success message (in real application, this would submit to a server)
+            alert('Technician registered successfully!');
+            return false; // Return false to prevent page reload for this demo
+        }
+    </script>
+</body>
+</html>
