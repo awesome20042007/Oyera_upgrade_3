@@ -27,13 +27,13 @@ body {
     /* Primary Colors - Automotive Theme */
     --primary-dark: #1a2a3a;
     --primary-orange: #e67e22;
-    --primary-orange-dark: #d35400;
+    --primary-orange-dark: #795b48;
     --white: #ffffff;
     --light-gray: #f5f7fa;
     --medium-gray: #bdc3c7;
 
     /* Accent Colors */
-    --success-green: #27ae60;
+    --success-green: #3aa63c;
     --warning-yellow: #f39c12;
     --danger-red: #e74c3c;
     --info-blue: #3498db;
@@ -260,7 +260,7 @@ body {
 }
 
 .btn-view:hover {
-    background: #2980b9;
+    background: #0729a5;
 }
 
 .btn-edit {
@@ -269,7 +269,7 @@ body {
 }
 
 .btn-edit:hover {
-    background: #e67e22;
+    background:red;
 }
 
 .btn-delete {
@@ -278,7 +278,7 @@ body {
 }
 
 .btn-delete:hover {
-    background: #c0392b;
+    background: #af1a09;
 }
 
 /* -------------------- Page Headers -------------------- */
